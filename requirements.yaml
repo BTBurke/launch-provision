@@ -1,0 +1,11 @@
+apt:
+	build-essential
+	python-pip
+	python-yaml
+	vim
+pip:
+	boto
+.bashrc:
+	export AWS_ACCESS_KEY_ID=<Key>
+	export AWS_SECRET_ACCESS_KEY=<key>
+	export PYTHONPATH=/path/to/repository/root

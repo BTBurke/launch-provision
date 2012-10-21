@@ -1,0 +1,4 @@
+Internal API:
+  description: Internal API for managing EC2 infrastructure
+  path: /v1/
+  version: 0.1
