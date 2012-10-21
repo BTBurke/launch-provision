@@ -22,6 +22,7 @@ def get_instance_status(instance_id, filter=None):
 		return status
 
 def get_instance_obj(instance_id):
+	instance_id = str(instance_id)
 	conn = connection()
 	try:
 		reservation = conn.get_all_instances(instance_ids=instance_id)
