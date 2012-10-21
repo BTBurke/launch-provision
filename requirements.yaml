@@ -5,6 +5,8 @@ apt:
 	vim
 pip:
 	boto
+	tornado
+	gunicorn
 .bashrc:
 	export AWS_ACCESS_KEY_ID=<Key>
 	export AWS_SECRET_ACCESS_KEY=<key>
