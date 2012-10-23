@@ -3,11 +3,6 @@ from api.awsconnection import connection
 from api.instancestatus import get_instance_obj
 from api.argutils import assert_required_args, process_args_or_defaults, required
 
-def start_instance(instance_id):
-	default = {
-	'blocking': False
-	}
-
 
 def change_run_state_instance(instance_id, action, args):
 	default = {
@@ -16,7 +11,10 @@ def change_run_state_instance(instance_id, action, args):
 	kwargs = process_args_or_defaults(args, default)
 
 	i = get_instance_obj(instance_id)
-	print i, type(i)
+	
+	if not i:
+		return {'status': 404, 'body': 'Instance not found'}
+
 	try:
 		if action == 'stop':
 			i.stop()

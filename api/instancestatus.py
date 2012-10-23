@@ -5,6 +5,9 @@ def get_instance_status(instance_id, filter=None):
 	instance_obj = get_instance_obj(str(instance_id))
 	i = instance_obj.__dict__
 
+	if not i:
+		return {'status': 404, 'body': 'Instance not found'}
+
 	return_map = ('id', 'public_dns_name', 'private_dns_name', 
 	'key_name', 'instance_type', 'launch_time',
 	'image_id', 'private_ip_address', 'ip_address')
@@ -17,9 +20,9 @@ def get_instance_status(instance_id, filter=None):
 
 	if filter:
 		filter_status = {k: status[k] for k in filter if k in status.keys()}
-		return filter_status
+		return {'status': 200, 'body': filter_status}
 	else:
-		return status
+		return {'status': 200, 'body': status}
 
 def get_instance_obj(instance_id):
 	instance_id = str(instance_id)
