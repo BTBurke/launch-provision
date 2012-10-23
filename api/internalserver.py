@@ -17,16 +17,16 @@ class InstanceActionHandler(RequestHandler):
 		if action == 'modify':
 			pass
 		else:
-			ret = change_run_state_instance(instance_id, action, self)
-			print json.dumps(ret)
+			status = change_run_state_instance(instance_id, action, self)
+			self.write(json.dumps(status))
 
 
 class InstanceStatusHandler(RequestHandler):
 	def get(self, instance_id):
 		authenticate(self)
-		status = get_instance_status(instance_id)
+		status = get_instance_status(instance_id, args=self)
 		if status:
-			self.write(status)
+			self.write(json.dumps(status))
 		else:
 			raise HTTPError(404)
 
@@ -36,10 +36,16 @@ class InstanceStatusFilterHandler(RequestHandler):
 		authenticate(self)
 		status = get_instance_status(instance_id, filter=[str(filter)])
 		if status['status'] == 200:
-			self.write(status)
+			self.write(json.dumps(status))
 		else:
 			raise HTTPError(status['status'])
 
+class LaunchHandler(RequestHandler):
+	def put(self):
+		authenticate(self)
+		ret = launch_instance(self)
+		self.set_status(ret['status'])
+		self.write(json.dumps(ret['body']))
 
 
 app = Application([

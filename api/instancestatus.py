@@ -1,12 +1,22 @@
 from boto.exception import EC2ResponseError
 from api.awsconnection import connection
 
-def get_instance_status(instance_id, filter=None):
+def get_instance_status(instance_id, filter=None, args=None):
+
+
+
+	if not filter:
+		filter = args.get_argument('filter', None)
+	if filter:
+		filter = [i for i in str(filter).split(',')]
+
+	print 'filter:', filter
+
 	instance_obj = get_instance_obj(str(instance_id))
 	i = instance_obj.__dict__
-
 	if not i:
 		return {'status': 404, 'body': 'Instance not found'}
+
 
 	return_map = ('id', 'public_dns_name', 'private_dns_name', 
 	'key_name', 'instance_type', 'launch_time',
