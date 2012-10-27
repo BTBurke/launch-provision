@@ -17,7 +17,7 @@ class InstanceActionHandler(RequestHandler):
 	def put(self, instance_id, action):
 		authenticate(self)
 		if action == 'modify':
-			pass
+			modify_instance(instance_id, self)
 		else:
 			ret = change_run_state_instance(instance_id, action, self)
             self.set_status(ret['status'])
@@ -51,6 +51,25 @@ def change_run_state_instance(instance_id, action, args):
 
 	return {'status': 200, 'body': instance_id + ' ' + action}
 
+def modify_instance(instance_id, args):
+	default = {
+	'attribute': required(),
+	'value': required()
+	}
+
+	kwargs = process_args_or_defaults(args, defaults)
+	if assert_required_args(kwargs):
+		instance_obj = get_instance_obj(instance_id)
+		if not instance_obj:
+			return {'status': 404, 'body': 'Instance not found'}
+		else:
+			success = instance_obj.modify_attribute(kwargs['attribute'], kwargs['value'])
+			if success:
+				return {'status': 200, 'body': 'Instance modification succeeded'}
+			else:
+				return ('status': 408, 'body': 'Instance modification failed.')
+	else:
+		return {'status': 408, 'body': 'Required arguments attribute and value not provided'}
 
 def launch_instance(args):
 	default = {
