@@ -19,8 +19,9 @@ class InstanceActionHandler(RequestHandler):
 		if action == 'modify':
 			pass
 		else:
-			status = change_run_state_instance(instance_id, action, self)
-			self.write(json.dumps(status))
+			ret = change_run_state_instance(instance_id, action, self)
+            self.set_status(ret['status'])
+			self.write(json.dumps(ret['body']))
 
 
 def change_run_state_instance(instance_id, action, args):

@@ -6,20 +6,16 @@ import json
 class InstanceStatusHandler(RequestHandler):
 	def get(self, instance_id):
 		authenticate(self)
-		status = get_instance_status(instance_id, args=self)
-		if status:
-			self.write(json.dumps(status))
-		else:
-			raise HTTPError(404)
+		ret = get_instance_status(instance_id, args=self)
+		self.set_status(ret['status'])
+	    self.write(json.dumps(ret['body']))
 
 class InstanceStatusFilterHandler(RequestHandler):
 	def get(self, instance_id, filter):
 		authenticate(self)
-		status = get_instance_status(instance_id, filter=[str(filter)])
-		if status['status'] == 200:
-			self.write(json.dumps(status))
-		else:
-			raise HTTPError(status['status'])
+		ret = get_instance_status(instance_id, filter=[str(filter)])
+		self.set_status(ret['status'])
+		self.write(json.dumps(ret['body'])
 
 def get_instance_status(instance_id, filter=None, args=None):
 
@@ -30,9 +26,11 @@ def get_instance_status(instance_id, filter=None, args=None):
 		filter = [i for i in str(filter).split(',')]
 
 	instance_obj = get_instance_obj(str(instance_id))
-	i = instance_obj.__dict__
-	if not i:
+
+	if not instance_obj:
 		return {'status': 404, 'body': 'Instance not found'}
+    else:
+        i = instance_obj.__dict__
 
 
 	return_map = ('id', 'public_dns_name', 'private_dns_name', 
