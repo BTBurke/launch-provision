@@ -3,7 +3,7 @@ import yaml
 import json
 from api.authenticate import authenticate
 from api.instancestatus import InstanceStatusHandler, InstanceStatusFilterHandler
-from api.instancemodify import InstanceActionHandler
+from api.instancemodify import LaunchHandler, InstanceActionHandler
 
 class RootHandler(RequestHandler):
 	def get(self):
