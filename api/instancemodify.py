@@ -1,7 +1,26 @@
+import json
+from tornado.web import RequestHandler, HTTPError
 from boto.exception import EC2ResponseError
 from api.awsconnection import connection
 from api.instancestatus import get_instance_obj
 from api.argutils import assert_required_args, process_args_or_defaults, required
+
+
+class LaunchHandler(RequestHandler):
+	def put(self):
+		authenticate(self)
+		ret = launch_instance(self)
+		self.set_status(ret['status'])
+		self.write(json.dumps(ret['body']))
+
+class InstanceActionHandler(RequestHandler):
+	def put(self, instance_id, action):
+		authenticate(self)
+		if action == 'modify':
+			pass
+		else:
+			status = change_run_state_instance(instance_id, action, self)
+			self.write(json.dumps(status))
 
 
 def change_run_state_instance(instance_id, action, args):

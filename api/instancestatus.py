@@ -1,16 +1,33 @@
+from tornado.web import RequestHandler, HTTPError
 from boto.exception import EC2ResponseError
 from api.awsconnection import connection
+import json
+
+class InstanceStatusHandler(RequestHandler):
+	def get(self, instance_id):
+		authenticate(self)
+		status = get_instance_status(instance_id, args=self)
+		if status:
+			self.write(json.dumps(status))
+		else:
+			raise HTTPError(404)
+
+class InstanceStatusFilterHandler(RequestHandler):
+	def get(self, instance_id, filter):
+		authenticate(self)
+		status = get_instance_status(instance_id, filter=[str(filter)])
+		if status['status'] == 200:
+			self.write(json.dumps(status))
+		else:
+			raise HTTPError(status['status'])
 
 def get_instance_status(instance_id, filter=None, args=None):
-
 
 
 	if not filter:
 		filter = args.get_argument('filter', None)
 	if filter:
 		filter = [i for i in str(filter).split(',')]
-
-	print 'filter:', filter
 
 	instance_obj = get_instance_obj(str(instance_id))
 	i = instance_obj.__dict__
