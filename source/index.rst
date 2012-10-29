@@ -23,31 +23,31 @@ Launch Instance
 
 Launches an instance of the specified AMI and instance type
 
-====================================    ===============     ===============
-Parameter                               Default             Type
-====================================    ===============     ===============
-ami                                     required          	string
-instance_type                           required          	string
-min_count                               1                   int
-max_count                               1                   int
-key_name                                scalacity_dev1      string
-security_groups                         SSH                 list of strings
-user_data                                                   string
-placement                               us-east-1b          string
-placement_group                                             string
-instance_initiated_shutdown_behavior    terminate           string
-ebs_optimized                           False               bool
-====================================    ===============     ===============
+:Params:
+    ====================================    ===============     ===============
+    Parameter                               Default             Type
+    ====================================    ===============     ===============
+    ami                                     required          	string
+    instance_type                           required          	string
+    min_count                               1                   int
+    max_count                               1                   int
+    key_name                                scalacity_dev1      string
+    security_groups                         SSH                 list of strings
+    user_data                                                   string
+    placement                               us-east-1b          string
+    placement_group                                             string
+    instance_initiated_shutdown_behavior    terminate           string
+    ebs_optimized                           False               bool
+    ====================================    ===============     ===============
 
-Returns:
-
-======  ================================
-Status  Body
-======  ================================
-200     List of instance IDs
-400     Required arguments not provided
-408     Error while running via EC2 API
-======  ================================
+:Returns:
+    ======  ================================
+    Status  Body
+    ======  ================================
+    200     List of instance IDs
+    400     Required arguments not provided
+    408     Error while running via EC2 API
+    ======  ================================
 
 Start Instance
 ----------------
@@ -55,15 +55,14 @@ Start Instance
 
 Starts an instance
 
-Returns:
-
-======  ================================
-Status  Body
-======  ================================
-200     Instance modification succeeded
-404     Instance ID not found
-408     Error while modifying via EC2 API
-======  ================================
+:Returns:
+    ======  ================================
+    Status  Body
+    ======  ================================
+    200     Instance modification succeeded
+    404     Instance ID not found
+    408     Error while modifying via EC2 API
+    ======  ================================
 
 Stop Instance
 ----------------
@@ -71,21 +70,21 @@ Stop Instance
 
 Stops an instance
 
-====================================    ===============     ===============
-Parameter                               Default             Type
-====================================    ===============     ===============
-force                                   false               bool
-====================================    ===============     ===============
+:Params:
+    ====================================    ===============     ===============
+    Parameter                               Default             Type
+    ====================================    ===============     ===============
+    force                                   false               bool
+    ====================================    ===============     ===============
 
-Returns:
-
-======  ================================
-Status  Body
-======  ================================
-200     Instance modification succeeded
-404     Instance ID not found
-408     Error while modifying via EC2 API
-======  ================================
+:Returns:
+    ======  ================================
+    Status  Body
+    ======  ================================
+    200     Instance modification succeeded
+    404     Instance ID not found
+    408     Error while modifying via EC2 API
+    ======  ================================
 
 Terminate Instance
 --------------------
@@ -93,21 +92,21 @@ Terminate Instance
 
 Terminates an instance
 
-====================================    ===============     ===============
-Parameter                               Default             Type
-====================================    ===============     ===============
-force                                   false               bool
-====================================    ===============     ===============
+:Params:
+    ====================================    ===============     ===============
+    Parameter                               Default             Type
+    ====================================    ===============     ===============
+    force                                   false               bool
+    ====================================    ===============     ===============
 
-Returns:
-
-======  ================================
-Status  Body
-======  ================================
-200     Instance modification succeeded
-404     Instance ID not found
-408     Error while modifying via EC2 API
-======  ================================
+:Returns:
+    ======  ================================
+    Status  Body
+    ======  ================================
+    200     Instance modification succeeded
+    404     Instance ID not found
+    408     Error while modifying via EC2 API
+    ======  ================================
 
 Reboot Instance
 ----------------
@@ -115,15 +114,14 @@ Reboot Instance
 
 Reboots an instance
 
-Returns:
-
-======  ================================
-Status  Body
-======  ================================
-200     Instance modification succeeded
-404     Instance ID not found
-408     Error while modifying via EC2 API
-======  ================================
+:Returns:
+    ======  ================================
+    Status  Body
+    ======  ================================
+    200     Instance modification succeeded
+    404     Instance ID not found
+    408     Error while modifying via EC2 API
+    ======  ================================
 
 Instance Attributes
 --------------------
@@ -131,11 +129,12 @@ Instance Attributes
 
 Gets instance attributes
 
-====================================    ===============     ===============
-Parameter                               Default             Type
-====================================    ===============     ===============
-filter                                                      Comma-separated list of fields
-====================================    ===============     ===============
+:Params:
+    ====================================    ===============     ===============
+    Parameter                               Default             Type
+    ====================================    ===============     ===============
+    filter                                                      Comma-separated list of fields
+    ====================================    ===============     ===============
 
 
 :Returns:
@@ -174,20 +173,19 @@ Modify Instance Attribute
 Modifies an instance's attributes
 
     
+:Params:
+    ====================================    ===============     ===============
+    Parameter                               Default             Type
+    ====================================    ===============     ===============
+    attribute                               required            string
+    value                                   required            string
+    ====================================    ===============     ===============
 
-====================================    ===============     ===============
-Parameter                               Default             Type
-====================================    ===============     ===============
-attribute                               required            string
-value                                   required            string
-====================================    ===============     ===============
-
-Returns:
-
-======  ================================
-Status  Body
-======  ================================
-200     Instance modification succeeded
-404     Instance ID not found
-408     Error while modifying via EC2 API
-======  ================================
+:Returns:
+    ======  ================================
+    Status  Body
+    ======  ================================
+    200     Instance modification succeeded
+    404     Instance ID not found
+    408     Error while modifying via EC2 API
+    ======  ================================

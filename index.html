@@ -58,85 +58,136 @@
 <h2>Launch Instance<a class="headerlink" href="#launch-instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>PUT /v1/launch</strong></p>
 <p>Launches an instance of the specified AMI and instance type</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params:</th><td class="field-body"><table border="1" class="first docutils">
 <colgroup>
 <col width="55%" />
 <col width="23%" />
 <col width="23%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Default</th>
-<th class="head">Type</th>
+<tr class="row-odd"><th class="head"><p class="first last">Parameter</p>
+</th>
+<th class="head"><p class="first last">Default</p>
+</th>
+<th class="head"><p class="first last">Type</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>ami</td>
-<td>required</td>
-<td>string</td>
+<tr class="row-even"><td><p class="first last">ami</p>
+</td>
+<td><p class="first last">required</p>
+</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-odd"><td>instance_type</td>
-<td>required</td>
-<td>string</td>
+<tr class="row-odd"><td><p class="first last">instance_type</p>
+</td>
+<td><p class="first last">required</p>
+</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-even"><td>min_count</td>
-<td>1</td>
-<td>int</td>
+<tr class="row-even"><td><p class="first last">min_count</p>
+</td>
+<td><p class="first last">1</p>
+</td>
+<td><p class="first last">int</p>
+</td>
 </tr>
-<tr class="row-odd"><td>max_count</td>
-<td>1</td>
-<td>int</td>
+<tr class="row-odd"><td><p class="first last">max_count</p>
+</td>
+<td><p class="first last">1</p>
+</td>
+<td><p class="first last">int</p>
+</td>
 </tr>
-<tr class="row-even"><td>key_name</td>
-<td>scalacity_dev1</td>
-<td>string</td>
+<tr class="row-even"><td><p class="first last">key_name</p>
+</td>
+<td><p class="first last">scalacity_dev1</p>
+</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-odd"><td>security_groups</td>
-<td>SSH</td>
-<td>list of strings</td>
+<tr class="row-odd"><td><p class="first last">security_groups</p>
+</td>
+<td><p class="first last">SSH</p>
+</td>
+<td><p class="first last">list of strings</p>
+</td>
 </tr>
-<tr class="row-even"><td>user_data</td>
+<tr class="row-even"><td><p class="first last">user_data</p>
+</td>
 <td>&nbsp;</td>
-<td>string</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-odd"><td>placement</td>
-<td>us-east-1b</td>
-<td>string</td>
+<tr class="row-odd"><td><p class="first last">placement</p>
+</td>
+<td><p class="first last">us-east-1b</p>
+</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-even"><td>placement_group</td>
+<tr class="row-even"><td><p class="first last">placement_group</p>
+</td>
 <td>&nbsp;</td>
-<td>string</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-odd"><td>instance_initiated_shutdown_behavior</td>
-<td>terminate</td>
-<td>string</td>
+<tr class="row-odd"><td><p class="first last">instance_initiated_shutdown_behavior</p>
+</td>
+<td><p class="first last">terminate</p>
+</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-even"><td>ebs_optimized</td>
-<td>False</td>
-<td>bool</td>
+<tr class="row-even"><td><p class="first last">ebs_optimized</p>
+</td>
+<td><p class="first last">False</p>
+</td>
+<td><p class="first last">bool</p>
+</td>
 </tr>
 </tbody>
 </table>
-<p>Returns:</p>
-<table border="1" class="docutils">
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="16%" />
 <col width="84%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Status</th>
-<th class="head">Body</th>
+<tr class="row-odd"><th class="head"><p class="first last">Status</p>
+</th>
+<th class="head"><p class="first last">Body</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>List of instance IDs</td>
+<tr class="row-even"><td><p class="first last">200</p>
+</td>
+<td><p class="first last">List of instance IDs</p>
+</td>
 </tr>
-<tr class="row-odd"><td>400</td>
-<td>Required arguments not provided</td>
+<tr class="row-odd"><td><p class="first last">400</p>
+</td>
+<td><p class="first last">Required arguments not provided</p>
+</td>
 </tr>
-<tr class="row-even"><td>408</td>
-<td>Error while running via EC2 API</td>
+<tr class="row-even"><td><p class="first last">408</p>
+</td>
+<td><p class="first last">Error while running via EC2 API</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
@@ -145,26 +196,41 @@
 <h2>Start Instance<a class="headerlink" href="#start-instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>PUT /v1/[instance-id]/start</strong></p>
 <p>Starts an instance</p>
-<p>Returns:</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="15%" />
 <col width="85%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Status</th>
-<th class="head">Body</th>
+<tr class="row-odd"><th class="head"><p class="first last">Status</p>
+</th>
+<th class="head"><p class="first last">Body</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>Instance modification succeeded</td>
+<tr class="row-even"><td><p class="first last">200</p>
+</td>
+<td><p class="first last">Instance modification succeeded</p>
+</td>
 </tr>
-<tr class="row-odd"><td>404</td>
-<td>Instance ID not found</td>
+<tr class="row-odd"><td><p class="first last">404</p>
+</td>
+<td><p class="first last">Instance ID not found</p>
+</td>
 </tr>
-<tr class="row-even"><td>408</td>
-<td>Error while modifying via EC2 API</td>
+<tr class="row-even"><td><p class="first last">408</p>
+</td>
+<td><p class="first last">Error while modifying via EC2 API</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
@@ -173,45 +239,68 @@
 <h2>Stop Instance<a class="headerlink" href="#stop-instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>PUT /v1/[instance-id]/stop</strong></p>
 <p>Stops an instance</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params:</th><td class="field-body"><table border="1" class="first docutils">
 <colgroup>
 <col width="55%" />
 <col width="23%" />
 <col width="23%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Default</th>
-<th class="head">Type</th>
+<tr class="row-odd"><th class="head"><p class="first last">Parameter</p>
+</th>
+<th class="head"><p class="first last">Default</p>
+</th>
+<th class="head"><p class="first last">Type</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>force</td>
-<td>false</td>
-<td>bool</td>
+<tr class="row-even"><td><p class="first last">force</p>
+</td>
+<td><p class="first last">false</p>
+</td>
+<td><p class="first last">bool</p>
+</td>
 </tr>
 </tbody>
 </table>
-<p>Returns:</p>
-<table border="1" class="docutils">
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="15%" />
 <col width="85%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Status</th>
-<th class="head">Body</th>
+<tr class="row-odd"><th class="head"><p class="first last">Status</p>
+</th>
+<th class="head"><p class="first last">Body</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>Instance modification succeeded</td>
+<tr class="row-even"><td><p class="first last">200</p>
+</td>
+<td><p class="first last">Instance modification succeeded</p>
+</td>
 </tr>
-<tr class="row-odd"><td>404</td>
-<td>Instance ID not found</td>
+<tr class="row-odd"><td><p class="first last">404</p>
+</td>
+<td><p class="first last">Instance ID not found</p>
+</td>
 </tr>
-<tr class="row-even"><td>408</td>
-<td>Error while modifying via EC2 API</td>
+<tr class="row-even"><td><p class="first last">408</p>
+</td>
+<td><p class="first last">Error while modifying via EC2 API</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
@@ -220,45 +309,68 @@
 <h2>Terminate Instance<a class="headerlink" href="#terminate-instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>PUT /v1/[instance-id]/terminate</strong></p>
 <p>Terminates an instance</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params:</th><td class="field-body"><table border="1" class="first docutils">
 <colgroup>
 <col width="55%" />
 <col width="23%" />
 <col width="23%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Default</th>
-<th class="head">Type</th>
+<tr class="row-odd"><th class="head"><p class="first last">Parameter</p>
+</th>
+<th class="head"><p class="first last">Default</p>
+</th>
+<th class="head"><p class="first last">Type</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>force</td>
-<td>false</td>
-<td>bool</td>
+<tr class="row-even"><td><p class="first last">force</p>
+</td>
+<td><p class="first last">false</p>
+</td>
+<td><p class="first last">bool</p>
+</td>
 </tr>
 </tbody>
 </table>
-<p>Returns:</p>
-<table border="1" class="docutils">
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="15%" />
 <col width="85%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Status</th>
-<th class="head">Body</th>
+<tr class="row-odd"><th class="head"><p class="first last">Status</p>
+</th>
+<th class="head"><p class="first last">Body</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>Instance modification succeeded</td>
+<tr class="row-even"><td><p class="first last">200</p>
+</td>
+<td><p class="first last">Instance modification succeeded</p>
+</td>
 </tr>
-<tr class="row-odd"><td>404</td>
-<td>Instance ID not found</td>
+<tr class="row-odd"><td><p class="first last">404</p>
+</td>
+<td><p class="first last">Instance ID not found</p>
+</td>
 </tr>
-<tr class="row-even"><td>408</td>
-<td>Error while modifying via EC2 API</td>
+<tr class="row-even"><td><p class="first last">408</p>
+</td>
+<td><p class="first last">Error while modifying via EC2 API</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
@@ -267,26 +379,41 @@
 <h2>Reboot Instance<a class="headerlink" href="#reboot-instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>PUT /v1/[instance-id]/reboot</strong></p>
 <p>Reboots an instance</p>
-<p>Returns:</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="15%" />
 <col width="85%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Status</th>
-<th class="head">Body</th>
+<tr class="row-odd"><th class="head"><p class="first last">Status</p>
+</th>
+<th class="head"><p class="first last">Body</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>Instance modification succeeded</td>
+<tr class="row-even"><td><p class="first last">200</p>
+</td>
+<td><p class="first last">Instance modification succeeded</p>
+</td>
 </tr>
-<tr class="row-odd"><td>404</td>
-<td>Instance ID not found</td>
+<tr class="row-odd"><td><p class="first last">404</p>
+</td>
+<td><p class="first last">Instance ID not found</p>
+</td>
 </tr>
-<tr class="row-even"><td>408</td>
-<td>Error while modifying via EC2 API</td>
+<tr class="row-even"><td><p class="first last">408</p>
+</td>
+<td><p class="first last">Error while modifying via EC2 API</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
@@ -295,30 +422,37 @@
 <h2>Instance Attributes<a class="headerlink" href="#instance-attributes" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /v1/[instance-id]/attributes</strong></p>
 <p>Gets instance attributes</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params:</th><td class="field-body"><table border="1" class="first docutils">
 <colgroup>
 <col width="44%" />
 <col width="19%" />
 <col width="37%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Default</th>
-<th class="head">Type</th>
+<tr class="row-odd"><th class="head"><p class="first last">Parameter</p>
+</th>
+<th class="head"><p class="first last">Default</p>
+</th>
+<th class="head"><p class="first last">Type</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>filter</td>
+<tr class="row-even"><td><p class="first last">filter</p>
+</td>
 <td>&nbsp;</td>
-<td>Comma-separated list of fields</td>
+<td><p class="first last">Comma-separated list of fields</p>
+</td>
 </tr>
 </tbody>
 </table>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="37%" />
 <col width="63%" />
@@ -420,49 +554,75 @@
 <h2>Modify Instance Attribute<a class="headerlink" href="#modify-instance-attribute" title="Permalink to this headline">¶</a></h2>
 <p><strong>PUT /v1/[instance-id]/modify</strong></p>
 <p>Modifies an instance&#8217;s attributes</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params:</th><td class="field-body"><table border="1" class="first docutils">
 <colgroup>
 <col width="55%" />
 <col width="23%" />
 <col width="23%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Default</th>
-<th class="head">Type</th>
+<tr class="row-odd"><th class="head"><p class="first last">Parameter</p>
+</th>
+<th class="head"><p class="first last">Default</p>
+</th>
+<th class="head"><p class="first last">Type</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>attribute</td>
-<td>required</td>
-<td>string</td>
+<tr class="row-even"><td><p class="first last">attribute</p>
+</td>
+<td><p class="first last">required</p>
+</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
-<tr class="row-odd"><td>value</td>
-<td>required</td>
-<td>string</td>
+<tr class="row-odd"><td><p class="first last">value</p>
+</td>
+<td><p class="first last">required</p>
+</td>
+<td><p class="first last">string</p>
+</td>
 </tr>
 </tbody>
 </table>
-<p>Returns:</p>
-<table border="1" class="docutils">
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="15%" />
 <col width="85%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Status</th>
-<th class="head">Body</th>
+<tr class="row-odd"><th class="head"><p class="first last">Status</p>
+</th>
+<th class="head"><p class="first last">Body</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>Instance modification succeeded</td>
+<tr class="row-even"><td><p class="first last">200</p>
+</td>
+<td><p class="first last">Instance modification succeeded</p>
+</td>
 </tr>
-<tr class="row-odd"><td>404</td>
-<td>Instance ID not found</td>
+<tr class="row-odd"><td><p class="first last">404</p>
+</td>
+<td><p class="first last">Instance ID not found</p>
+</td>
 </tr>
-<tr class="row-even"><td>408</td>
-<td>Error while modifying via EC2 API</td>
+<tr class="row-even"><td><p class="first last">408</p>
+</td>
+<td><p class="first last">Error while modifying via EC2 API</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
