@@ -3,13 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Launch & Provision API's documentation!
-==================================================
+Launch & Provision Internal API 
+===============================
+
+REST API to launch and provision instances on EC2.  This is an internal-only API designed to be used by other infrastructure components to manage the infrastructure.  There is a separate external API for user interaction.  This functionality is designed as an API for scalability and to enable components written in multiple languages to have a single interface for infrastructure commands.  
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
+
 
 
 
