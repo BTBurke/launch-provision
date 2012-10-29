@@ -125,10 +125,36 @@ Status  Body
 408     Error while modifying via EC2 API
 ======  ================================
 
-Indices and tables
-==================
+Instance Attributes
+--------------------
+**GET /v1/[instance-id]/attributes**
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Gets instance attributes
+
+====================================    ===============     ===============
+Parameter                               Default             Type
+====================================    ===============     ===============
+filter                                                      Comma-separated list of fields
+====================================    ===============     ===============
+
+Returns:
+
+=====================================   ================================
+Field                                   Body
+=====================================   ================================
+id                                      Instance ID
+public_dns_name                         Public FQDN
+private_dns_name                        Private FQDN
+state                                   
+state_code                              
+key_name                                SSH Keypair Name
+instance_type                           Instance Type (t1.micro, etc.)
+launch_time                             
+image_id                                AMI Image ID
+placement                               AWS placement zone
+placement_group                         Placement group
+private_ip_address                      EC2 internal network IP
+ip_address                              Public IP address
+=====================================   ================================
+
 

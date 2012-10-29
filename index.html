@@ -291,14 +291,83 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="instance-attributes">
+<h2>Instance Attributes<a class="headerlink" href="#instance-attributes" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /v1/[instance-id]/attributes</strong></p>
+<p>Gets instance attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="19%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Default</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>filter</td>
+<td>&nbsp;</td>
+<td>Comma-separated list of fields</td>
+</tr>
+</tbody>
+</table>
+<p>Returns:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="54%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Body</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td>Instance ID</td>
+</tr>
+<tr class="row-odd"><td>public_dns_name</td>
+<td>Public FQDN</td>
+</tr>
+<tr class="row-even"><td>private_dns_name</td>
+<td>Private FQDN</td>
+</tr>
+<tr class="row-odd"><td>state</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>state_code</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>key_name</td>
+<td>SSH Keypair Name</td>
+</tr>
+<tr class="row-even"><td>instance_type</td>
+<td>Instance Type (t1.micro, etc.)</td>
+</tr>
+<tr class="row-odd"><td>launch_time</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>image_id</td>
+<td>AMI Image ID</td>
+</tr>
+<tr class="row-odd"><td>placement</td>
+<td>AWS placement zone</td>
+</tr>
+<tr class="row-even"><td>placement_group</td>
+<td>Placement group</td>
+</tr>
+<tr class="row-odd"><td>private_ip_address</td>
+<td>EC2 internal network IP</td>
+</tr>
+<tr class="row-even"><td>ip_address</td>
+<td>Public IP address</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
 </div>
 
 
@@ -318,9 +387,9 @@
 <li><a class="reference internal" href="#stop-instance">Stop Instance</a></li>
 <li><a class="reference internal" href="#terminate-instance">Terminate Instance</a></li>
 <li><a class="reference internal" href="#reboot-instance">Reboot Instance</a></li>
+<li><a class="reference internal" href="#instance-attributes">Instance Attributes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
   <h3>This Page</h3>
