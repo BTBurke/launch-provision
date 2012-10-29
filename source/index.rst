@@ -23,6 +23,17 @@ Launch Instance
 
 Launches an instance of the specified AMI and instance type
 
+================    ===============     ===============
+Parameter           Default             Type
+================    ===============     ===============
+ami                 required          	string
+instance_type       required          	string
+min_count           1                   int
+max_count           1                   int
+key_name            scalacity_dev1      string
+security_groups     SSH                 list of strings
+================    ===============     ===============
+
 * ami (required) [string]
 * instance_type (required) [string]
 * min_count (default = 1) [int]
