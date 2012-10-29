@@ -23,28 +23,21 @@ Launch Instance
 
 Launches an instance of the specified AMI and instance type
 
-================    ===============     ===============
-Parameter           Default             Type
-================    ===============     ===============
-ami                 required          	string
-instance_type       required          	string
-min_count           1                   int
-max_count           1                   int
-key_name            scalacity_dev1      string
-security_groups     SSH                 list of strings
-================    ===============     ===============
-
-* ami (required) [string]
-* instance_type (required) [string]
-* min_count (default = 1) [int]
-* max_count (default = 1) [int]
-* key_name (default = scalacity_dev1) [string]
-* security_groups (default=SSH) [list of strings]
-* user_data (default = none) [string]
-* placement (default = us-east-1b) [string]
-* placement_group (default = none) [string]
-* instance_initiated_shutdown_behavior (default = 'terminate') [string]
-* ebs_optimized (default = False)
+====================================    ===============     ===============
+Parameter                               Default             Type
+====================================    ===============     ===============
+ami                                     required          	string
+instance_type                           required          	string
+min_count                               1                   int
+max_count                               1                   int
+key_name                                scalacity_dev1      string
+security_groups                         SSH                 list of strings
+user_data                                                   string
+placement                               us-east-1b          string
+placement_group                                             string
+instance_initiated_shutdown_behavior    terminate           string
+ebs_optimized                           False               bool
+====================================    ===============     ===============
 
 Returns:
 

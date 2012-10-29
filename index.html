@@ -60,9 +60,9 @@
 <p>Launches an instance of the specified AMI and instance type</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="35%" />
-<col width="33%" />
-<col width="33%" />
+<col width="55%" />
+<col width="23%" />
+<col width="23%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -95,21 +95,28 @@
 <td>SSH</td>
 <td>list of strings</td>
 </tr>
+<tr class="row-even"><td>user_data</td>
+<td>&nbsp;</td>
+<td>string</td>
+</tr>
+<tr class="row-odd"><td>placement</td>
+<td>us-east-1b</td>
+<td>string</td>
+</tr>
+<tr class="row-even"><td>placement_group</td>
+<td>&nbsp;</td>
+<td>string</td>
+</tr>
+<tr class="row-odd"><td>instance_initiated_shutdown_behavior</td>
+<td>terminate</td>
+<td>string</td>
+</tr>
+<tr class="row-even"><td>ebs_optimized</td>
+<td>False</td>
+<td>bool</td>
+</tr>
 </tbody>
 </table>
-<ul class="simple">
-<li>ami (required) [string]</li>
-<li>instance_type (required) [string]</li>
-<li>min_count (default = 1) [int]</li>
-<li>max_count (default = 1) [int]</li>
-<li>key_name (default = scalacity_dev1) [string]</li>
-<li>security_groups (default=SSH) [list of strings]</li>
-<li>user_data (default = none) [string]</li>
-<li>placement (default = us-east-1b) [string]</li>
-<li>placement_group (default = none) [string]</li>
-<li>instance_initiated_shutdown_behavior (default = &#8216;terminate&#8217;) [string]</li>
-<li>ebs_optimized (default = False)</li>
-</ul>
 <p>Returns:</p>
 <table border="1" class="docutils">
 <colgroup>
