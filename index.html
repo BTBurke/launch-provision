@@ -58,42 +58,87 @@
 <h2>Launch Instance<a class="headerlink" href="#launch-instance" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt>
-<tt class="descname">PUT /v1/launch**</tt></dt>
+<tt class="descname">PUT /v1/launch</tt></dt>
 <dd></dd></dl>
 
 <p>Launches an instance of the specified AMI and instance type</p>
-<p>Arguments:</p>
-<p>:param ami (required) [string]
-:param instance_type (required) [string]
-:param min_count (default = 1) [int]
-:param max_count (default = 1) [int]
-:param key_name (default = scalacity_dev1) [string]
-:param security_groups (default=SSH) [list of strings]
-:param user_data (default = none) [string]
-:param placement (default = us-east-1b) [string]
-:param placement_group (default = none) [string]
-:param instance_initiated_shutdown_behavior (default = &#8216;terminate&#8217;) [string]
-:param ebs_optimized (default = False)</p>
-<p>Returns:</p>
-<table border="1" class="docutils">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param ami:</th><td class="field-body"><p class="first">(required) [string]</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param instance_type:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(required) [string]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param min_count:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = 1) [int]</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param max_count:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = 1) [int]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param key_name:</th><td class="field-body"><p class="first">(default = scalacity_dev1) [string]</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param security_groups:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default=SSH) [list of strings]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param user_data:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = none) [string]</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param placement:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = us-east-1b) [string]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param placement_group:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = none) [string]</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param instance_initiated_shutdown_behavior:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = &#8216;terminate&#8217;) [string]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param ebs_optimized:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = False)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="16%" />
 <col width="84%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Status</th>
-<th class="head">Body</th>
+<tr class="row-odd"><th class="head"><p class="first last">Status</p>
+</th>
+<th class="head"><p class="first last">Body</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>200</td>
-<td>List of instance IDs</td>
+<tr class="row-even"><td><p class="first last">200</p>
+</td>
+<td><p class="first last">List of instance IDs</p>
+</td>
 </tr>
-<tr class="row-odd"><td>400</td>
-<td>Required arguments not provided</td>
+<tr class="row-odd"><td><p class="first last">400</p>
+</td>
+<td><p class="first last">Required arguments not provided</p>
+</td>
 </tr>
-<tr class="row-even"><td>408</td>
-<td>Error while running via EC2 API</td>
+<tr class="row-even"><td><p class="first last">408</p>
+</td>
+<td><p class="first last">Error while running via EC2 API</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>

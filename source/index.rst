@@ -19,33 +19,28 @@ Instance Actions
 
 Launch Instance
 ----------------
-.. py:function:: PUT /v1/launch**
+.. py:function:: PUT /v1/launch
 
 Launches an instance of the specified AMI and instance type
 
-Arguments:
-
-:param ami (required) [string]
-:param instance_type (required) [string]
-:param min_count (default = 1) [int]
-:param max_count (default = 1) [int]
-:param key_name (default = scalacity_dev1) [string]
-:param security_groups (default=SSH) [list of strings]
-:param user_data (default = none) [string]
-:param placement (default = us-east-1b) [string]
-:param placement_group (default = none) [string]
-:param instance_initiated_shutdown_behavior (default = 'terminate') [string]
-:param ebs_optimized (default = False)
-
-Returns:
-
-======  ================================
-Status  Body
-======  ================================
-200     List of instance IDs
-400     Required arguments not provided
-408     Error while running via EC2 API
-======  ================================
+:param ami: (required) [string]
+:param instance_type: (required) [string]
+:param min_count: (default = 1) [int]
+:param max_count: (default = 1) [int]
+:param key_name: (default = scalacity_dev1) [string]
+:param security_groups: (default=SSH) [list of strings]
+:param user_data: (default = none) [string]
+:param placement: (default = us-east-1b) [string]
+:param placement_group: (default = none) [string]
+:param instance_initiated_shutdown_behavior: (default = 'terminate') [string]
+:param ebs_optimized: (default = False)
+:rtype: ======  ================================
+        Status  Body
+        ======  ================================
+        200     List of instance IDs
+        400     Required arguments not provided
+        408     Error while running via EC2 API
+        ======  ================================
 
 
 Indices and tables
