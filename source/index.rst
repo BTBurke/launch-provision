@@ -137,7 +137,9 @@ Parameter                               Default             Type
 filter                                                      Comma-separated list of fields
 ====================================    ===============     ===============
 
+
 :Returns:
+
 =====================================   ================================
 Field                                   Body
 =====================================   ================================
@@ -165,6 +167,7 @@ Gets instance attribute (single field)
     
 
 :Returns:
+
 Field: Field value
 
 
