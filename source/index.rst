@@ -49,6 +49,22 @@ Status  Body
 408     Error while running via EC2 API
 ======  ================================
 
+Start Instance
+----------------
+**PUT /v1/[instance-id]/start**
+
+Starts an instance
+
+Returns:
+
+======  ================================
+Status  Body
+======  ================================
+200     Instance modification succeeded
+404     Instance ID not found
+408     Error while modifying via EC2 API
+======  ================================
+
 Stop Instance
 ----------------
 **PUT /v1/[instance-id]/stop**
@@ -71,6 +87,43 @@ Status  Body
 408     Error while modifying via EC2 API
 ======  ================================
 
+Terminate Instance
+--------------------
+**PUT /v1/[instance-id]/terminate**
+
+Terminates an instance
+
+====================================    ===============     ===============
+Parameter                               Default             Type
+====================================    ===============     ===============
+force                                   false               bool
+====================================    ===============     ===============
+
+Returns:
+
+======  ================================
+Status  Body
+======  ================================
+200     Instance modification succeeded
+404     Instance ID not found
+408     Error while modifying via EC2 API
+======  ================================
+
+Reboot Instance
+----------------
+**PUT /v1/[instance-id]/reboot**
+
+Reboots an instance
+
+Returns:
+
+======  ================================
+Status  Body
+======  ================================
+200     Instance modification succeeded
+404     Instance ID not found
+408     Error while modifying via EC2 API
+======  ================================
 
 Indices and tables
 ==================
