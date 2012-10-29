@@ -165,7 +165,7 @@ Modify Instance Attribute
 --------------------------
 **PUT /v1/[instance-id]/modify**
 
-Modifies an instance's attributes
+Modifies an instance's attributes.  **Instance must be stopped before you modify attributes.**
 
     
 :Params:
@@ -182,5 +182,5 @@ Modifies an instance's attributes
     ======  ================================
     200     Instance modification succeeded
     404     Instance ID not found
-    408     Error while modifying via EC2 API
+    408     Error while modifying via EC2 API or instance not stopped
     ======  ================================

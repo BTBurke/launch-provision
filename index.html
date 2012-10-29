@@ -548,7 +548,7 @@
 <div class="section" id="modify-instance-attribute">
 <h2>Modify Instance Attribute<a class="headerlink" href="#modify-instance-attribute" title="Permalink to this headline">¶</a></h2>
 <p><strong>PUT /v1/[instance-id]/modify</strong></p>
-<p>Modifies an instance&#8217;s attributes</p>
+<p>Modifies an instance&#8217;s attributes.  <strong>Instance must be stopped before you modify attributes.</strong></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -589,8 +589,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
-<col width="15%" />
-<col width="85%" />
+<col width="10%" />
+<col width="90%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><p class="first last">Status</p>
@@ -612,7 +612,7 @@
 </tr>
 <tr class="row-even"><td><p class="first last">408</p>
 </td>
-<td><p class="first last">Error while modifying via EC2 API</p>
+<td><p class="first last">Error while modifying via EC2 API or instance not stopped</p>
 </td>
 </tr>
 </tbody>
