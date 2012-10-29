@@ -56,59 +56,55 @@
 <h1>Instance Actions<a class="headerlink" href="#instance-actions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="launch-instance">
 <h2>Launch Instance<a class="headerlink" href="#launch-instance" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt>
-<tt class="descname">PUT /v1/launch</tt></dt>
-<dd></dd></dl>
-
+<p><strong>PUT /v1/launch</strong></p>
 <p>Launches an instance of the specified AMI and instance type</p>
+<ul class="simple">
+<li>ami (required) [string]</li>
+</ul>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param ami:</th><td class="field-body"><p class="first">(required) [string]</p>
+<tr class="field-odd field"><th class="field-name" colspan="2">param instance_type:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(required) [string]</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param instance_type:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(required) [string]</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param min_count:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = 1) [int]</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param max_count:</th></tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param min_count:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = 1) [int]</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param key_name:</th><td class="field-body"><p class="first">(default = scalacity_dev1) [string]</p>
+<tr class="field-odd field"><th class="field-name" colspan="2">param max_count:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = 1) [int]</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param security_groups:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default=SSH) [list of strings]</p>
+<tr class="field-even field"><th class="field-name">param key_name:</th><td class="field-body"><p class="first">(default = scalacity_dev1) [string]</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param user_data:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = none) [string]</p>
+<tr class="field-odd field"><th class="field-name" colspan="2">param security_groups:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default=SSH) [list of strings]</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param placement:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = us-east-1b) [string]</p>
+<tr class="field-even field"><th class="field-name" colspan="2">param user_data:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = none) [string]</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param placement_group:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = none) [string]</p>
+<tr class="field-odd field"><th class="field-name" colspan="2">param placement:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = us-east-1b) [string]</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param instance_initiated_shutdown_behavior:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = &#8216;terminate&#8217;) [string]</p>
+<tr class="field-even field"><th class="field-name" colspan="2">param placement_group:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = none) [string]</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param ebs_optimized:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = False)</p>
+<tr class="field-odd field"><th class="field-name" colspan="2">param instance_initiated_shutdown_behavior:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = &#8216;terminate&#8217;) [string]</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body"><table border="1" class="first last docutils">
+<tr class="field-even field"><th class="field-name" colspan="2">param ebs_optimized:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">(default = False)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body"><table border="1" class="first last docutils">
 <colgroup>
 <col width="16%" />
 <col width="84%" />

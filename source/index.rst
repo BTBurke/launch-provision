@@ -19,11 +19,11 @@ Instance Actions
 
 Launch Instance
 ----------------
-.. py:function:: PUT /v1/launch
+**PUT /v1/launch**
 
 Launches an instance of the specified AMI and instance type
 
-:param ami: (required) [string]
+* ami (required) [string]
 :param instance_type: (required) [string]
 :param min_count: (default = 1) [int]
 :param max_count: (default = 1) [int]
