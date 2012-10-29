@@ -8,11 +8,6 @@ Launch & Provision Internal API
 
 REST API to launch and provision instances on EC2.  This is an internal-only API designed to be used by other infrastructure components to manage the infrastructure.  There is a separate external API for user interaction.  This functionality is designed as an API for scalability and to enable components written in multiple languages to have a single interface for infrastructure commands.  
 
-Contents:
-
-.. toctree::
-   :maxdepth: 2
-
 
 Instance Actions
 ==================
