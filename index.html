@@ -56,28 +56,47 @@
 <h1>Instance Actions<a class="headerlink" href="#instance-actions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="launch-instance">
 <h2>Launch Instance<a class="headerlink" href="#launch-instance" title="Permalink to this headline">¶</a></h2>
-<p>** PUT /v1/launch **
-Launches an instance of the specified AMI and instance type</p>
-<p>Arguments:
-* ami (required) [string]
-* instance_type (required) [string]
-* min_count (default = 1) [int]
-* max_count (default = 1) [int]
-* key_name (default = scalacity_dev1) [string]
-* security_groups (default=SSH) [list of strings]
-* user_data (default = none) [string]
-* placement (default = us-east-1b) [string]
-* placement_group (default = none) [string]
-* instance_initiated_shutdown_behavior (default = &#8216;terminate&#8217;) [string]
-* ebs_optimized (default = False)</p>
-<p>Returns:
-====== ================================
-Status Body
-====== ================================
-200    List of instance IDs
-400    Required arguments not provided
-408    Error while running via EC2 API
-====== ================================</p>
+<dl class="function">
+<dt>
+<tt class="descname">PUT /v1/launch**</tt></dt>
+<dd></dd></dl>
+
+<p>Launches an instance of the specified AMI and instance type</p>
+<p>Arguments:</p>
+<p>:param ami (required) [string]
+:param instance_type (required) [string]
+:param min_count (default = 1) [int]
+:param max_count (default = 1) [int]
+:param key_name (default = scalacity_dev1) [string]
+:param security_groups (default=SSH) [list of strings]
+:param user_data (default = none) [string]
+:param placement (default = us-east-1b) [string]
+:param placement_group (default = none) [string]
+:param instance_initiated_shutdown_behavior (default = &#8216;terminate&#8217;) [string]
+:param ebs_optimized (default = False)</p>
+<p>Returns:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Status</th>
+<th class="head">Body</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200</td>
+<td>List of instance IDs</td>
+</tr>
+<tr class="row-odd"><td>400</td>
+<td>Required arguments not provided</td>
+</tr>
+<tr class="row-even"><td>408</td>
+<td>Error while running via EC2 API</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
