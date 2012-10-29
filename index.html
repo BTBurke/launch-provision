@@ -52,6 +52,34 @@
 </ul>
 </div>
 </div>
+<div class="section" id="instance-actions">
+<h1>Instance Actions<a class="headerlink" href="#instance-actions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="launch-instance">
+<h2>Launch Instance<a class="headerlink" href="#launch-instance" title="Permalink to this headline">¶</a></h2>
+<p>** PUT /v1/launch **
+Launches an instance of the specified AMI and instance type</p>
+<p>Arguments:
+* ami (required) [string]
+* instance_type (required) [string]
+* min_count (default = 1) [int]
+* max_count (default = 1) [int]
+* key_name (default = scalacity_dev1) [string]
+* security_groups (default=SSH) [list of strings]
+* user_data (default = none) [string]
+* placement (default = us-east-1b) [string]
+* placement_group (default = none) [string]
+* instance_initiated_shutdown_behavior (default = &#8216;terminate&#8217;) [string]
+* ebs_optimized (default = False)</p>
+<p>Returns:
+====== ================================
+Status Body
+====== ================================
+200    List of instance IDs
+400    Required arguments not provided
+408    Error while running via EC2 API
+====== ================================</p>
+</div>
+</div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
@@ -70,6 +98,10 @@
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Launch &amp; Provision Internal API</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#instance-actions">Instance Actions</a><ul>
+<li><a class="reference internal" href="#launch-instance">Launch Instance</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
