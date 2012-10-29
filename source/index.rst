@@ -145,11 +145,11 @@ Field                                   Body
 id                                      Instance ID
 public_dns_name                         Public FQDN
 private_dns_name                        Private FQDN
-state                                   
-state_code                              
+state                                   pending, running, shutting-down, terminated, stopping, stopped
+state_code                              0, 16, 32, 48, 64, 80
 key_name                                SSH Keypair Name
 instance_type                           Instance Type (t1.micro, etc.)
-launch_time                             
+launch_time                             YYYY-MM-DDTHH-MM-SS.000Z
 image_id                                AMI Image ID
 placement                               AWS placement zone
 placement_group                         Placement group
