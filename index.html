@@ -314,7 +314,14 @@
 </tr>
 </tbody>
 </table>
-<p>Returns:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 <table border="1" class="docutils">
 <colgroup>
 <col width="37%" />
@@ -368,6 +375,71 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="instance-attributes-single-field">
+<h2>Instance Attributes (single field)<a class="headerlink" href="#instance-attributes-single-field" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /v1/[instance-id]/attributes/[field]</strong></p>
+<p>Gets instance attribute (single field)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Field: Field value</p>
+</div>
+<div class="section" id="modify-instance-attribute">
+<h2>Modify Instance Attribute<a class="headerlink" href="#modify-instance-attribute" title="Permalink to this headline">¶</a></h2>
+<p><strong>PUT /v1/[instance-id]/modify</strong></p>
+<p>Modifies an instance&#8217;s attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="55%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Default</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>attribute</td>
+<td>required</td>
+<td>string</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>required</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<p>Returns:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Status</th>
+<th class="head">Body</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200</td>
+<td>Instance modification succeeded</td>
+</tr>
+<tr class="row-odd"><td>404</td>
+<td>Instance ID not found</td>
+</tr>
+<tr class="row-even"><td>408</td>
+<td>Error while modifying via EC2 API</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -388,6 +460,8 @@
 <li><a class="reference internal" href="#terminate-instance">Terminate Instance</a></li>
 <li><a class="reference internal" href="#reboot-instance">Reboot Instance</a></li>
 <li><a class="reference internal" href="#instance-attributes">Instance Attributes</a></li>
+<li><a class="reference internal" href="#instance-attributes-single-field">Instance Attributes (single field)</a></li>
+<li><a class="reference internal" href="#modify-instance-attribute">Modify Instance Attribute</a></li>
 </ul>
 </li>
 </ul>

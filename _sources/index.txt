@@ -137,8 +137,7 @@ Parameter                               Default             Type
 filter                                                      Comma-separated list of fields
 ====================================    ===============     ===============
 
-Returns:
-
+:Returns:
 =====================================   ================================
 Field                                   Body
 =====================================   ================================
@@ -157,4 +156,39 @@ private_ip_address                      EC2 internal network IP
 ip_address                              Public IP address
 =====================================   ================================
 
+Instance Attributes (single field)
+------------------------------------
+**GET /v1/[instance-id]/attributes/[field]**
 
+Gets instance attribute (single field)
+
+    
+
+:Returns:
+Field: Field value
+
+
+Modify Instance Attribute
+--------------------------
+**PUT /v1/[instance-id]/modify**
+
+Modifies an instance's attributes
+
+
+
+====================================    ===============     ===============
+Parameter                               Default             Type
+====================================    ===============     ===============
+attribute                               required            string
+value                                   required            string
+====================================    ===============     ===============
+
+Returns:
+
+======  ================================
+Status  Body
+======  ================================
+200     Instance modification succeeded
+404     Instance ID not found
+408     Error while modifying via EC2 API
+======  ================================
