@@ -141,6 +141,53 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="stop-instance">
+<h2>Stop Instance<a class="headerlink" href="#stop-instance" title="Permalink to this headline">¶</a></h2>
+<p><strong>PUT /v1/[instance-id]/stop</strong></p>
+<p>Stops an instance</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="55%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Default</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>force</td>
+<td>false</td>
+<td>bool</td>
+</tr>
+</tbody>
+</table>
+<p>Returns:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Status</th>
+<th class="head">Body</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200</td>
+<td>Instance modification succeeded</td>
+</tr>
+<tr class="row-odd"><td>404</td>
+<td>Instance ID not found</td>
+</tr>
+<tr class="row-even"><td>408</td>
+<td>Error while modifying via EC2 API</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -164,6 +211,7 @@
 </li>
 <li><a class="reference internal" href="#instance-actions">Instance Actions</a><ul>
 <li><a class="reference internal" href="#launch-instance">Launch Instance</a></li>
+<li><a class="reference internal" href="#stop-instance">Stop Instance</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>

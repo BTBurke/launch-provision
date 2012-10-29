@@ -49,6 +49,28 @@ Status  Body
 408     Error while running via EC2 API
 ======  ================================
 
+Stop Instance
+----------------
+**PUT /v1/[instance-id]/stop**
+
+Stops an instance
+
+====================================    ===============     ===============
+Parameter                               Default             Type
+====================================    ===============     ===============
+force                                   false               bool
+====================================    ===============     ===============
+
+Returns:
+
+======  ================================
+Status  Body
+======  ================================
+200     Instance modification succeeded
+404     Instance ID not found
+408     Error while modifying via EC2 API
+======  ================================
+
 
 Indices and tables
 ==================
