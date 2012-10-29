@@ -1,5 +1,6 @@
 from tornado.web import RequestHandler, HTTPError
 from boto.exception import EC2ResponseError
+from api.authenticate import authenticate
 from api.awsconnection import connection
 import json
 
@@ -8,14 +9,16 @@ class InstanceStatusHandler(RequestHandler):
 		authenticate(self)
 		ret = get_instance_status(instance_id, args=self)
 		self.set_status(ret['status'])
-	    self.write(json.dumps(ret['body']))
+		self.write(json.dumps(ret['body']))
 
 class InstanceStatusFilterHandler(RequestHandler):
 	def get(self, instance_id, filter):
 		authenticate(self)
 		ret = get_instance_status(instance_id, filter=[str(filter)])
 		self.set_status(ret['status'])
-		self.write(json.dumps(ret['body'])
+		self.write(json.dumps(ret['body']))
+
+
 
 def get_instance_status(instance_id, filter=None, args=None):
 
@@ -29,8 +32,8 @@ def get_instance_status(instance_id, filter=None, args=None):
 
 	if not instance_obj:
 		return {'status': 404, 'body': 'Instance not found'}
-    else:
-        i = instance_obj.__dict__
+	else:
+		i = instance_obj.__dict__
 
 
 	return_map = ('id', 'public_dns_name', 'private_dns_name', 

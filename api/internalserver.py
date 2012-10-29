@@ -13,7 +13,7 @@ class RootHandler(RequestHandler):
 
 app = Application([
 	(r"/", RootHandler),
-	(r"/v1/", RootHandler),
+	(r"/v1", RootHandler),
 	(r"/v1/launch", LaunchHandler),
 	(r"/v1/(i-[0-9a-zA-Z]*)/(start|stop|modify|reboot|terminate)", InstanceActionHandler),
 	(r"/v1/(i-[0-9a-zA-Z]*)/attributes", InstanceStatusHandler),

@@ -1,10 +1,12 @@
 import json
 from tornado.web import RequestHandler, HTTPError
 from boto.exception import EC2ResponseError
+from api.authenticate import authenticate
 from api.awsconnection import connection
 from api.instancestatus import get_instance_obj
 from api.argutils import assert_required_args, process_args_or_defaults, required
 
+#TODO: Refactor to put methods in with appropriate class handler
 
 class LaunchHandler(RequestHandler):
 	def put(self):
@@ -17,12 +19,45 @@ class InstanceActionHandler(RequestHandler):
 	def put(self, instance_id, action):
 		authenticate(self)
 		if action == 'modify':
-			modify_instance(instance_id, self)
+			print "Im going to modify this instance" + str(instance_id)
+			#ret = modify_instance(instance_id, self)
+			ret = self.modify_instance(instance_id)
+			print 'ret: ', ret
+			self.set_status(ret['status'])
+			self.write(json.dumps(ret['body']))
 		else:
 			ret = change_run_state_instance(instance_id, action, self)
-            self.set_status(ret['status'])
+			self.set_status(ret['status'])
 			self.write(json.dumps(ret['body']))
 
+	def modify_instance(self, instance_id):
+		default = {
+		'attribute': required(),
+		'value': required()
+		}
+
+		kwargs = process_args_or_defaults(self, default)
+		# Hack to get around two different ways of referencing instance_type
+		# in the API
+		if str(kwargs['attribute']) == 'instance_type':
+			kwargs['attribute'] = 'instanceType'
+		
+		if assert_required_args(kwargs):
+			instance_obj = get_instance_obj(instance_id)
+			if not instance_obj:
+				return {'status': 404, 'body': 'Instance not found'}
+			else:
+				if instance_obj.state == 'stopped':
+					success = instance_obj.modify_attribute(kwargs['attribute'], kwargs['value'])
+				else:
+					return {'status': 408, 'body': 'Instance must be stopped to modify attributes.'}
+
+				if success:
+					return {'status': 200, 'body': 'Instance modification succeeded'}
+				else:
+					return {'status': 408, 'body': 'Instance modification failed.'}
+		else:
+			return {'status': 408, 'body': 'Required arguments attribute and value not provided'}
 
 def change_run_state_instance(instance_id, action, args):
 	default = {
@@ -51,25 +86,10 @@ def change_run_state_instance(instance_id, action, args):
 
 	return {'status': 200, 'body': instance_id + ' ' + action}
 
-def modify_instance(instance_id, args):
-	default = {
-	'attribute': required(),
-	'value': required()
-	}
-
-	kwargs = process_args_or_defaults(args, defaults)
-	if assert_required_args(kwargs):
-		instance_obj = get_instance_obj(instance_id)
-		if not instance_obj:
-			return {'status': 404, 'body': 'Instance not found'}
-		else:
-			success = instance_obj.modify_attribute(kwargs['attribute'], kwargs['value'])
-			if success:
-				return {'status': 200, 'body': 'Instance modification succeeded'}
-			else:
-				return ('status': 408, 'body': 'Instance modification failed.')
-	else:
-		return {'status': 408, 'body': 'Required arguments attribute and value not provided'}
+#def modify_instance(instance_id, args):
+#	print "here I am"
+#	return True
+	
 
 def launch_instance(args):
 	default = {
